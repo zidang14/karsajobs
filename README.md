@@ -3,11 +3,11 @@ Karsajobs
 Karsajobs is simple jobs application written in Go.
 
 ## Configuration
-Karsajobs read configuration from environtment variable
+Karsajobs read configuration from environment variable
 
 | ENV        |      Description                 |
 |------------|:---------------------------------|
-| APP_PORT   | run karsajobs in spesific port   |
+| APP_PORT   | run karsajobs in specific port   |
 | MONGO_HOST | mongodb hostname                 |
 | MONGO_USER | mongodb user                     |
 | MONGO_PASS | mongodb password                 |
