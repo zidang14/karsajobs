@@ -14,6 +14,33 @@ import (
 	"github.com/nothinux/karsajobs/pkg/models"
 )
 
+func TestHomeHandler(t *testing.T) {
+	r, err := http.NewRequest(http.MethodGet, "/", nil)
+	if err != nil {
+		t.Fatal(err)
+	}
+
+	rr := httptest.NewRecorder()
+
+	http.HandlerFunc(home).ServeHTTP(rr, r)
+	result := rr.Result()
+	defer result.Body.Close()
+
+	if result.StatusCode != http.StatusOK {
+		t.Errorf("got %v, want %v", result.StatusCode, http.StatusOK)
+	}
+
+	body, err := ioutil.ReadAll(result.Body)
+	if err != nil {
+		t.Fatal(err)
+	}
+
+	if !reflect.DeepEqual(string(body), "Up!") {
+		t.Errorf("got %v, want %v", string(body), "Up!")
+	}
+
+}
+
 func TestGetJobsHandler(t *testing.T) {
 	if testing.Short() {
 		t.Skip("skipping integration test")

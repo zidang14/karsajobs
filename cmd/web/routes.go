@@ -21,7 +21,7 @@ func (app *application) routes() http.Handler {
 		AllowedMethods: []string{"GET", "POST", "DELETE"},
 	}))
 
-	mux.Get("/", app.home)
+	mux.Get("/", home)
 	mux.Get("/jobs", app.getJobs)
 	mux.Get("/job/{id}", app.getJob)
 	mux.Post("/job", app.InsertJob)

@@ -14,20 +14,14 @@ import (
 	"github.com/nothinux/karsajobs/pkg/models"
 )
 
-func (app *application) home(w http.ResponseWriter, r *http.Request) {
+func home(w http.ResponseWriter, r *http.Request) {
 	if r.URL.Path != "/" {
 		http.NotFound(w, r)
 		return
 	}
 
-	out, err := json.Marshal("")
-	if err != nil {
-		http.Error(w, http.StatusText(500), 500)
-		return
-	}
-
-	w.Header().Add("Content-type", "application/json")
-	w.Write(out)
+	w.Header().Add("Content-type", "text/plain")
+	w.Write([]byte("Up!"))
 }
 
 func (app *application) getJobs(w http.ResponseWriter, r *http.Request) {
