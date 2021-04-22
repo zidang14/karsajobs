@@ -11,5 +11,5 @@ spec:
      paths:
      - path: /
        backend:
-         serviceName: karsajobs-backend
+         serviceName: karsajobs-service
          servicePort: 8080
